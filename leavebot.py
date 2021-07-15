@@ -85,13 +85,13 @@ def on_text_message(data):
 								print("spotted advertiser")
 							except Exception as e:
 								print(e)
-			if x.lower()==":info" and c==[]:
+			if x.lower()=="!info" and c==[]:
 				try:
 					subclient.send_message(chatId=data.message.chatId,message="[ci]Hey there i m a bot, I can welcome newbies and also tell them bye when they leave")
 					print(f"Info requested by {data.message.author.nickname}")
 				except Exception as e:
 					print(e)
-			if x.lower()==":global":
+			if x.lower()=="!global":
 				try:
 					for i in c:
 						d=client.get_from_code(i).objectId
@@ -100,7 +100,7 @@ ndc://g/user-profile/{d}""")
 					print(f"Info requested by {data.message.author.nickname}")
 				except Exception as e:
 					print(e)
-			if x.lower()==":clear":
+			if x.lower()=="!clear":
 				if x.lower() not in l:
 					try:
 						for i in c:
@@ -117,13 +117,13 @@ ndc://g/user-profile/{d}""")
 						print(e)
 				else:
 					subclient.send_message(chatId=data.message.chatId,message="Clear command is locked")
-			if x.lower()==":lock" and c==[]:
+			if x.lower()=="!lock" and c==[]:
 				try:
 					subclient.send_message(chatId=data.message.chatId,message=f"Locked commands {l}")
 					print(f"Info requested by {data.message.author.nickname}")
 				except Exception as e:
 					print(e)
-			if x.lower()==":alock":
+			if x.lower()=="!alock":
 				if data.message.author.userId in adm:
 					try:
 						for i in c:
@@ -138,7 +138,7 @@ ndc://g/user-profile/{d}""")
 						subclient.send_message(chatId=data.message.chatId,message="This command is only accessible to admin")
 					except Exception as e:
 						print(e)
-			if x.lower()==":rlock":
+			if x.lower()=="!rlock":
 				if data.message.author.userId in adm:
 					try:
 						for i in c:
@@ -153,7 +153,7 @@ ndc://g/user-profile/{d}""")
 						subclient.send_message(chatId=data.message.chatId,message="This command is only accessible to admin")
 					except Exception as e:
 						print(e)
-			if x.lower()==":say":
+			if x.lower()=="-say":
 				if x.lower() not in l:
 					if c==[]:
 						try:
@@ -179,7 +179,7 @@ ndc://g/user-profile/{d}""")
 						subclient.send_message(chatId=data.message.chatId,message="say command is locked")
 					except:
 						pass
-			if x.lower()==":join":
+			if x.lower()=="!join":
 				if c==[]:
 					try:
 						subclient.send_message(chatId=data.message.chatId,message=f"{data.message.author.nickname}, you have to paste the link after join, dumb !")
@@ -197,7 +197,7 @@ ndc://g/user-profile/{d}""")
 						print(f"Info requested by {data.message.author.nickname}")
 					except Exception as e:
 						print(e)
-			if x.lower()==":vc" and c==[]:
+			if x.lower()=="!vc" and c==[]:
 				try:
 					subclient.invite_to_vc(userId=data.message.author.userId,chatId=data.message.chatId)
 					print(f"invited {data.message.author.nickname} to vc")
@@ -224,7 +224,7 @@ ndc://g/user-profile/{d}""")
 						subclient.send_message(chatId=data.message.chatId,message="Inviteall command is locked")
 					except:
 						pass
-			if x.lower()==":prank" and c==[]:
+			if x.lower()=="!prank" and c==[]:
 				try:
 					subclient.delete_message(messageId=data.message.messageId,chatId=data.message.chatId,asStaff=True,reason="clear")
 					subclient.send_message(chatId=data.message.chatId,message=f"You have been fooled by {data.message.author.nickname}",messageType=107)
@@ -245,7 +245,7 @@ ndc://g/user-profile/{d}""")
 						subclient.send_message(chatId=data.message.chatId,message=f"Pm command is locked <${data.message.author.nickname}$> !!",mentionUserIds=[data.message.author.userId])
 					except:
 						pass
-			if x.lower()==":start" and c==[]:
+			if x.lower()=="!start" and c==[]:
 				if x.lower() not in l:
 					try:
 						client.start_vc(comId=cid,chatId=data.message.chatId,joinType=1)
@@ -262,7 +262,7 @@ ndc://g/user-profile/{d}""")
 						subclient.send_message(chatId=data.message.chatId,message=f"Start command is locked <${data.message.author.nickname}$> !!",mentionUserIds=[data.message.author.userId])
 					except:
 						pass
-			if x.lower()==":end" and c==[]:
+			if x.lower()=="!end" and c==[]:
 				try:
 					client.end_vc(comId=cid,chatId=data.message.chatId,joinType=2)
 					subclient.send_message(chatId=data.message.chatId,message=f"vc ended")
@@ -270,7 +270,7 @@ ndc://g/user-profile/{d}""")
 				except Exception as e:
 					print(e)
 					subclient.send_message(chatId=data.message.chatId,message=f"[ic]I dont have co-host/host/staff id to run that command, <${data.message.author.nickname}$>",mentionUserIds=[data.message.author.userId])
-			if x.lower()==":members" and c==[]:
+			if x.lower()=="!members" and c==[]:
 				if x.lower() not in l:
 					try:
 						o=""
@@ -287,7 +287,7 @@ ndc://g/user-profile/{d}""")
 					except:
 						pass
 
-			if x.lower()==":amino" and c==[]:
+			if x.lower()=="!amino" and c==[]:
 				try:
 					subclient.send_message(chatId=data.message.chatId,message="""[cbu]What is amino.py
 [c]Amino.py Is A Python API For Communicating With Amino Servers Whilst Pretending That You're An App User. This Is Mostly Accomplished By Spoofing Device Configuration Headers. It Is Also For Objectifying And Organizing Amino Response Data, So That Actually Doing Anything Is Easier.
@@ -296,19 +296,19 @@ do -import to find more
 					print(f"Info requested by {data.message.author.nickname}")
 				except Exception as e:
 					print(e)
-			if x.lower()==":import" and c==[]:
+			if x.lower()=="!import" and c==[]:
 				try:
 					subclient.send_message(chatId=data.message.chatId,message="""import amino.py
 [c]This command/line imports the amino.py module which consists of 5 set of python files namely
-:acm
-:client
-:subclient
-:socket
-:init""")
+!acm
+!client
+!subclient
+!socket
+!init""")
 					print(f"Info requested by {data.message.author.nickname}")
 				except Exception as e:
 					print(e)
-			if x.lower()==":acm" and c==[]:
+			if x.lower()=="!acm" and c==[]:
 				try:
 					subclient.send_message(chatId=data.message.chatId,message="""[cb]acm attribute
 [c]To use this Acm commands, you will have to first make an object of acm
@@ -331,78 +331,78 @@ en denotes english""")
 					print(f"Info requested by {data.message.author.nickname}")
 				except Exception as e:
 					print(e)
-			if x.lower()==":help" and c==[]:
+			if x.lower()=="!help" and c==[]:
 				try:
 					subclient.send_message(chatId=data.message.chatId,message="""[cb]Commands:-
 
-:info                 :members
-:join {chatlink}      :global {userlink}
-:say                  :pm
-:amino             :prank
-:start               :vc
-:cid                  :insta
-:heicmd           :inviteall
-:lock                :clear
-:alock,-rlock (admin cmds)""")
+!info                 !members
+!join {chatlink}      !global {userlink}
+!say                  !pm
+!amino             !prank
+!start               !vc
+!cid                  !insta
+!heicmd           !inviteall
+!lock                !clear
+!alock,-rlock (admin cmds)""")
 					print(f"Info requested by {data.message.author.nickname}")
 				except Exception as e:
 					print(e)
-			if x.lower()==":client" and c==[]:
+			if x.lower()=="!client" and c==[]:
 				try:
 					subclient.send_message(chatId=data.message.chatId,message="""[cb]DJ SAHIL  add that command yet, please PM/DM him""")
 					print(f"Info requested by {data.message.author.nickname}")
 				except Exception as e:
 					print(e)
-			if x.lower()==":subclient" and c==[]:
+			if x.lower()=="!subclient" and c==[]:
 				try:
 					subclient.send_message(chatId=data.message.chatId,message="""[cb]DJ SAHIL didnt add that command yet, please PM/DM him""")
 					print(f"Info requested by {data.message.author.nickname}")
 				except Exception as e:
 					print(e)
-			if x.lower()==":socket" and c==[]:
+			if x.lower()=="!socket" and c==[]:
 				try:
 					subclient.send_message(chatId=data.message.chatId,message="""[cb]DJ SAHIL didnt add that command yet, please PM/DM him""")
 					print(f"Info requested by {data.message.author.nickname}")
 				except Exception as e:
 					print(e)
-			if x.lower()==":init" and c==[]:
+			if x.lower()=="!init" and c==[]:
 				try:
 					subclient.send_message(chatId=data.message.chatId,message="""[cb]DJ SAHIL didnt add that command yet, please PM/DM him""")
 					print(f"Info requested by {data.message.author.nickname}")
 				except Exception as e:
 					print(e)
-			if x.lower()==":flirt" and c==[]:
+			if x.lower()=="!flirt" and c==[]:
 				try:
 					subclient.send_message(chatId=data.message.chatId,message="""[i]Everytime i look at you, my heart races faster than a bullet""")
 					print(f"Info requested by {data.message.author.nickname}")
 				except Exception as e:
 					print(e)
-			if x.lower()==":fart" and c==[]:
+			if x.lower()=="!fart" and c==[]:
 				try:
 					subclient.send_message(chatId=data.message.chatId,message="""[i]Phush phush phush,Ahh!!!""")
 					print(f"Info requested by {data.message.author.nickname}")
 				except Exception as e:
 					print(e)
-			if x.lower()==":hugme" and c==[]:
+			if x.lower()=="!hugme" and c==[]:
 				try:
 					subclient.send_message(chatId=data.message.chatId,message="""[i]opens my arms and hugs you gently (づ｡◕‿‿◕｡)づ
 [i]I m here for you...""")
 					print(f"Info requested by {data.message.author.nickname}")
 				except Exception as e:
 					print(e)
-			if x.lower()==":joke" and c==[]:
+			if x.lower()=="!joke" and c==[]:
 				try:
 					subclient.send_message(chatId=data.message.chatId,message="""[i]Your life""")
 					print(f"Info requested by {data.message.author.nickname}")
 				except Exception as e:
 					print(e)
-			if x.lower()==":punchme" and c==[]:
+			if x.lower()=="!punchme" and c==[]:
 				try:
 					subclient.send_message(chatId=data.message.chatId,message="""[i]wears my boxing gloves and punches u hard at ur face""")
 					print(f"Info requested by {data.message.author.nickname}")
 				except Exception as e:
 					print(e)
-			if x.lower()==":moan" and c==[]:
+			if x.lower()=="!moan" and c==[]:
 				if subclient.get_chat_thread(data.message.chatId).title==None:
 					if x.lower() not in l:
 						sounds="moan.mp3"
@@ -422,41 +422,41 @@ en denotes english""")
 						subclient.send_message(chatId=data.message.chatId,message="Moan command works only in pm, type -pm to make the bot join pm")
 					except:
 						pass
-			if x.lower()==":cheerme" and c==[]:
+			if x.lower()=="!cheerme" and c==[]:
 				try:
 					subclient.send_message(chatId=data.message.chatId,message="""[i]I have replied to many members, but when i replies u, it makes my day!""")
 					print(f"Info requested by {data.message.author.nickname}")
 				except Exception as e:
 					print(e)
-			if x.lower()==":insta" and c==[]:
+			if x.lower()=="!insta" and c==[]:
 				try:
 					subclient.send_message(chatId=data.message.chatId,message="""https://www.instagram.com/p/CDaKk9QJIu8/?utm_medium=copy_linkutm_medium=copy_link""")
 					print(f"Info requested by {data.message.author.nickname}")
 				except Exception as e:
 					print(e)
-			if x.lower()==":cid" and c==[]:
+			if x.lower()=="!cid" and c==[]:
 				try:
 					subclient.send_message(chatId=data.message.chatId,message=f"{cid}")
 					print(f"Info requested by {data.message.author.nickname}")
 				except Exception as e:
 					print(e)
-			if x.lower()==":twerk" and c==[]:
+			if x.lower()=="!twerk" and c==[]:
 				try:
 					subclient.send_message(chatId=data.message.chatId,message="""[i]my booty hurts right now, maybe later..""")
 					print(f"Info requested by {data.message.author.nickname}")
 				except Exception as e:
 					print(e)
-			if x.lower()==":heicmd" and c==[]:
+			if x.lower()=="!heicmd" and c==[]:
 				try:
 					subclient.send_message(chatId=data.message.chatId,message="""[b]Commands by Hei!!
-:flirt
-:punchme
-:twerk
-:cheerme
-:moan
-:hugme
-:joke
-:fart""")
+!flirt
+!punchme
+!twerk
+!cheerme
+!moan
+!hugme
+!joke
+!fart""")
 					print(f"Info requested by {data.message.author.nickname}")
 				except Exception as e:
 					print(e)
