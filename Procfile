@@ -1,1 +1,1 @@
-worker: python <leavebot.py
+worker: python leavebot.py
