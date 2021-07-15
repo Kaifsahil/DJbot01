@@ -1,1 +1,1 @@
-worker: python <Final_main.py>.py
+worker: python <leavebot.py
