@@ -343,7 +343,8 @@ en denotes english""")
 !cid                  !insta
 !heicmd           !inviteall
 !lock                !clear
-!alock,-rlock (admin cmds)""")
+!alock,!rlock (admin cmds)
+!help2,!help3,!help4 for more commands """)
 					print(f"Info requested by {data.message.author.nickname}")
 				except Exception as e:
 					print(e)
